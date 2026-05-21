@@ -1,7 +1,4 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import heroImg from './assets/hero.png'
 import './App.css'
 
 function App() {
@@ -21,7 +18,7 @@ function App() {
       .then((res) => res.json())
       .then((resp) => {
         setWeather({
-          temperature: `${resp.main.temp} - 273`,
+          temperature:  `${(resp.main.temp - 273.15).toFixed(2)} °C`,
           windSpeed: `${resp.wind.speed}- m/s`,
           weather: `${resp.weather[0].description}`,
         });
